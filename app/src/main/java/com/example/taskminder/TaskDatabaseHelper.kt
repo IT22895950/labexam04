@@ -52,4 +52,27 @@ class TaskDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NA
         db.close()
         return tasksList
     }
+    fun updateTask(task: Task){
+        val db= writableDatabase
+        val values= ContentValues().apply {
+            put(COLUMN_TITLE,task.title)
+
+        }
+        val whereClause= "$COLUMN_ID=?"
+        val whereArgs= arrayOf(task.id.toString())
+        db.update(TABLE_NAME,values,whereClause,whereArgs)
+        db.close()
+    }
+    fun getTaskById(taskId:Int): Task{
+        val db= readableDatabase
+        val query= "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID=$taskId"
+        val cursor= db.rawQuery(query, null)
+        cursor.moveToFirst()
+
+        val id= cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val title= cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+        cursor.close()
+        db.close()
+        return Task(id, title)
+    }
 }

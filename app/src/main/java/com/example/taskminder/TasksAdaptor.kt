@@ -2,7 +2,6 @@ package com.example.taskminder
 
 import android.content.Context
 import android.content.Intent
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ class TasksAdaptor(private var tasks: List<Task>, context: Context):
     RecyclerView.Adapter<TasksAdaptor.TaskViewHolder>() {
      class TaskViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
          val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
-         val updateButton: ImageView = itemView.findViewById(R.id.updatesavebutton)
+         val updateButton: ImageView = itemView.findViewById(R.id.updateButton)
      }
     override fun onCreateViewHolder(parent:ViewGroup,ViewType: Int):TaskViewHolder{
         val view= LayoutInflater.from(parent.context).inflate(R.layout.task_item, parent,false)
@@ -30,7 +29,7 @@ class TasksAdaptor(private var tasks: List<Task>, context: Context):
         holder.titleTextView.text=task.title
 
         holder.updateButton.setOnClickListener{
-            val intent = Intent(holder.itemView.context, UpdateActivity::class.java).apply{
+            val intent = Intent(holder.itemView.context, UpdateTaskActivity::class.java).apply{
                putExtra("task_id", task.id)
             }
             holder.itemView.context.startActivity(intent)
