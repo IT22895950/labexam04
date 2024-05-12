@@ -14,7 +14,7 @@
         tools:ignore="HardcodedText"
         android:textColor="@color/darkblue"
         android:textAlignment="center"
-        android:paddingTop="15dp"/>
+        android:paddingTop="5dp"/>
 
 
 

@@ -24,7 +24,7 @@ class AddTaskActivity : AppCompatActivity() {
 
             // Validate title before inserting
             if (TextUtils.isEmpty(title)) {
-                Toast.makeText(this, "Please enter a title for the task", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter your task here ", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener // Exit the click listener if title is empty
             }
 

@@ -32,14 +32,14 @@
     <EditText
         android:id="@+id/titleEditText"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="100dp"
     android:hint="Enter the task"
     android:padding="12dp"
     android:textSize="20sp"
     android:layout_below="@id/addnoteheading"
     android:background="@drawable/orange_border"
     android:layout_marginTop="16dp"
-    android:maxLines="1"
+    android:maxLines="10"
     tools:ignore="HardcodedText"
         android:autofillHints="" />
   </RelativeLayout>
